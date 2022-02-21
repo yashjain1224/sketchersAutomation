@@ -108,7 +108,7 @@ def main():
 
         intro()
         login()
-        addToCart()
+#         addToCart()
     except Exception as error :
         print("here is the error -->>>>", error)
         driver.quit()
