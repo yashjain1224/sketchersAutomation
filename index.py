@@ -54,7 +54,7 @@ def login():
                 "//*[@id='login-form-password']").send_keys("8562SonU@")
             clickLogin = driver.find_element_by_xpath(
                 "//*[@id='login']/form/div[5]/button").click()
-            time.sleep(2)
+#             time.sleep(2)
 
     except Exception as error:
         print("here is the error -->>>>", error)
