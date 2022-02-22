@@ -45,7 +45,7 @@ sauce_url = "https://www.skechers.in/"
 
 driver = webdriver.Remote(command_executor=sauce_url, options=options)
 driver.maximize_window()
-time.sleep(3)
+time.sleep(2)
 
 
 def read_config():
@@ -63,13 +63,13 @@ def intro():
         startMsg = driver.find_element_by_xpath(
             "//*[@id='consent-tracking']/div/div/div[3]/div/button[1]")
         startMsg.click()
-        time.sleep(3)
+        time.sleep(2)
         checkLogin = driver.find_element_by_xpath(
             "//span[normalize-space()='Login / Signup']").text
         if checkLogin == "Login / Signup":
             clickLogin = driver.find_element_by_xpath(
                 "//span[normalize-space()='Login / Signup']").click()
-            time.sleep(3)
+            time.sleep(2)
         else:
             driver.quit()
     except Exception as error:
@@ -81,9 +81,8 @@ def login():
 
     try:
 
-#         textLogin = driver.find_element_by_xpath(
-#             "//*[@id='maincontent']/div[2]/div/div[1]/div/div[1]/h5").text
-        textLogin ="LOG IN YOUR SKECHERS ACCOUNT"
+        textLogin = driver.find_element_by_xpath(
+            "//*[@id='maincontent']/div[2]/div/div[1]/div/div[1]/h5").text
         if textLogin == "LOG IN YOUR SKECHERS ACCOUNT":
             writeEmail = driver.find_element_by_xpath(
                 "//*[@id='login-form-email']").send_keys("9549173178")
@@ -91,11 +90,7 @@ def login():
                 "//*[@id='login-form-password']").send_keys("8562SonU@")
             clickLogin = driver.find_element_by_xpath(
                 "//*[@id='login']/form/div[5]/button").click()
-<<<<<<< HEAD
             time.sleep(4)
-=======
-            time.sleep(3)
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
 
     except Exception as error:
         print("here is the error -->>>>", error)
@@ -107,34 +102,23 @@ def addToCart():
         hoverDropDownMen = driver.find_element_by_xpath("//*[@id='Men']")
         # clickMen.click()
         action.move_to_element(hoverDropDownMen).perform()
-        time.sleep(3)
+        time.sleep(1)
         clickMen = driver.find_element_by_xpath("//*[@id='MensRunningShoes']")
         clickMen.click()
         checkTextMen = driver.find_element_by_xpath(
             "//*[@id='product-search-results']/div[1]/div[1]/span[1]").text
 
         if checkTextMen == "Running Shoes":
-<<<<<<< HEAD
 
             for i in range(1, 10):
                 if i == 1 or i == 2:
-=======
-           
-            for i in range(1,5):
-                if i==1 or i==2:
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
                     print("")
                 else:
                     i += 1
 
-<<<<<<< HEAD
                 time.sleep(1)
                 clickShoes = driver.find_element_by_xpath(
                     f"(//div[@class='main-image-slider-item pt-3 pt-md-2']){[i]}")
-=======
-                time.sleep(3)
-                clickShoes = driver.find_element_by_xpath(f"(//div[@class='main-image-slider-item pt-3 pt-md-2']){[i]}")
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
                 print(f" {i} time")
                 clickShoes.click()
                 for j in range(1, 7):
@@ -143,32 +127,22 @@ def addToCart():
                         f'//*[@id="size-1.0"]/button{[j]}')
                     clickShoeSize.click()
                     time.sleep(3)
-<<<<<<< HEAD
                     cart = driver.find_element_by_xpath(
                         "//*[@id='maincontent']/div[2]/div[3]/div[2]/div[5]/div[11]/div/div/div/div[1]/div/button").text
 
-=======
-                    cart = driver.find_element_by_xpath("//*[@id='maincontent']/div[2]/div[3]/div[2]/div[5]/div[11]/div/div/div/div[1]/div/button").text
-                  
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
                     if cart == "ADD TO CART":
                         addInCart = driver.find_element_by_xpath(
                             "//*[@id='maincontent']/div[2]/div[3]/div[2]/div[5]/div[11]/div/div/div/div[1]/div/button")
                         addInCart.click()
-<<<<<<< HEAD
                         time.sleep(2)
                         clickMenShoes = driver.find_element_by_xpath(
                             "//*[@id='maincontent']/div[2]/div[1]/div/div/div/ol/li[3]/a")
-=======
-                        time.sleep(3)
-                        clickMenShoes = driver.find_element_by_xpath("//*[@id='maincontent']/div[2]/div[1]/div/div/div/ol/li[3]/a")
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
                         clickMenShoes.click()
                         break
 
     except Exception as error:
         print("here is the error -->>>>", error)
-        driver.close()
+        driver.quit()
 
 # MAIN FUNCTION
 
@@ -178,13 +152,8 @@ def main():
 
         intro()
         login()
-<<<<<<< HEAD
         addToCart()
     except Exception as error:
-=======
-#         addToCart()
-    except Exception as error :
->>>>>>> 1dcedee3e1c1f5c84d5c333f14271b5d205165e8
         print("here is the error -->>>>", error)
         driver.quit()
 
