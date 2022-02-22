@@ -58,7 +58,7 @@ def login():
 
     except Exception as error:
         print("here is the error -->>>>", error)
-    driver.quit()
+        driver.quit()
 
 
 def addToCart():
