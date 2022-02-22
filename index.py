@@ -107,7 +107,7 @@ def main():
     try:
 
         intro()
-        login()
+#         login()
 #         addToCart()
     except Exception as error :
         print("here is the error -->>>>", error)
