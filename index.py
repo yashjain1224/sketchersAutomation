@@ -21,31 +21,20 @@ desired_cap ={
 }
 
 sauce_username = os.environ.get("oauth-sharmasaket715-5b096",None)
-sauce_key = os.environ.get("f376acc5-18a9-4968-8982-17355233ffe3" , None)
+sauce_key = os.environ.get("f5111a57-15b2-4104-b25a-752362bf260d" , None)
 URL = "http://{}:{}@ondemand.saucelabs.com:80/wd/hub".format(
     sauce_username , sauce_key
 )
 driver = webdriver.Remote(command_executor= URL , desired_capabilities= desired_cap)
+action = ActionChains(driver);
 
 
 # driver = webdriver.Chrome(executable_path="chromedriver.exe")
-driver.get("https://www.skechers.in/")
-action = ActionChains(driver)
-options = ChromeOptions()
-options.browser_version = 'latest'
-options.platform_name = 'Windows 11'
-options.headless = True
 
-sauce_options = {'username': os.environ["oauth-sharmasaket715-5b096"],
-                 'accessKey': os.environ["f376acc5-18a9-4968-8982-17355233ffe3"]
-                 }
 
-options.set_capability('sauce:options', sauce_options)
-sauce_url = "https://www.skechers.in/"
-
-driver = webdriver.Remote(command_executor=sauce_url, options=options)
-driver.maximize_window()
-time.sleep(2)
+# driver = webdriver.Remote(command_executor=sauce_url, options=options)
+# driver.maximize_window()
+# time.sleep(2)
 
 
 def read_config():
