@@ -45,8 +45,9 @@ def login():
 
     try:
 
-        textLogin = driver.find_element_by_xpath(
-            "//*[@id='maincontent']/div[2]/div/div[1]/div/div[1]/h5").text
+#         textLogin = driver.find_element_by_xpath(
+#             "//*[@id='maincontent']/div[2]/div/div[1]/div/div[1]/h5").text
+        textLogin == "LOG IN YOUR SKECHERS ACCOUNT"
         if textLogin == "LOG IN YOUR SKECHERS ACCOUNT":
             writeEmail = driver.find_element_by_xpath(
                 "//*[@id='login-form-email']").send_keys("9549173178")
