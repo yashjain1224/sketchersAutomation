@@ -63,7 +63,7 @@ def intro():
             driver.quit()
     except Exception as error:
         print("here is the error -->>>>", error)
-        driver.quit()
+        driver.close()
 
 
 def login():
@@ -83,7 +83,7 @@ def login():
 
     except Exception as error:
         print("here is the error -->>>>", error)
-        driver.quit()
+        driver.close()
 
 
 def addToCart():
@@ -131,7 +131,7 @@ def addToCart():
 
     except Exception as error:
         print("here is the error -->>>>", error)
-        driver.quit()
+        driver.close()
 
 # MAIN FUNCTION
 
@@ -144,10 +144,10 @@ def main():
         addToCart()
     except Exception as error:
         print("here is the error -->>>>", error)
-        driver.quit()
+        driver.close()
 
 
 # CALLING
 main()
 
-driver.quit()
+driver.close()
